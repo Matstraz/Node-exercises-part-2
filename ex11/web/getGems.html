@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Get gems website</h1>
+        <h3></h3>
+        <script>
+            async function fetchGems() {
+                const response = await fetch("http://localhost:3000/gems");
+                const gems = await response.json();
+                const showGems = document.querySelector("h3");
+                for (let i = 0; i < gems.length; i++) {
+                    let mylist = document.createElement("li");
+                    showGems.append(mylist);
+                    mylist.append(
+                        `Name: ${gems[i].name} || Value: ${gems[i].value}`
+                    );
+                }
+                console.log(gems[0]);
+            }
+
+            fetchGems();
+        </script>
+    </body>
+</html>
